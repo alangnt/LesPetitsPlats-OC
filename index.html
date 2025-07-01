@@ -4,8 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Les Petits Plats</title>
+  <link href="./tailwind/output.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="bg-[url(/assets/hero.jpg)] bg-center relative">
+    <img src="assets/logo.png" alt="Logo Les Petits Plats" class="absolute left-4 top-4">
+    
+    <div class="flex flex-col items-center justify-center gap-y-6 p-24">
+      <h1 class="font-anton! text-yellow-300 text-5xl text-center">
+        CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
+      </h1>
+      <div class="flex relative bg-white py-2 pl-8 pr-2 rounded-lg w-full">
+        <input
+          type="text"
+          placeholder="Rechercher une recette, un ingrédient, ..."
+          class="w-full"
+        >
+        <button><img src="assets/search-button.png" alt="Search button logo"></button>
+      </div>
+    </div>
+  </header>
 
+  <main class="flex flex-col bg-gray-100">
+    <nav class="flex justify-between items-center w-full p-4">
+      <div class="flex gap-12">
+        <select name="ingredients" id="ingredients" class="bg-white rounded-lg p-4">
+          <option value="" disabled selected>Ingrédients</option>
+        </select>
+        
+        <select name="appareils" id="appareils" class="bg-white rounded-lg p-4">
+          <option value="" disabled selected>Appareils</option>
+        </select>
+        
+        <select name="ustensils" id="ustensils" class="bg-white rounded-lg p-4">
+          <option value="" disabled selected>Ustensils</option>
+        </select>
+      </div>
+      
+      <!-- TODO: Total Recettes -->
+      <h2 id="recipesCount" class="text-xl"></h2>
+    </nav>
+    
+    <section id="recipesList" class="grid grid-cols-3 gap-6 p-4"></section>
+  </main>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
