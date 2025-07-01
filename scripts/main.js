@@ -1,14 +1,14 @@
 import { recipes } from '../data/recipes.js';
 
 const getRecipesCount = () => {
-	const recipesCountHTML = document.querySelector('#recipesCount');
+	const recipesCountHTML = document.getElementById('recipesCount');
 	recipesCountHTML.innerText = `${recipes.length} recettes`;
 	
 	return recipesCountHTML;
 };
 
 const getRecipeCard = (recipe) => {
-	const section = document.querySelector('#recipesList');
+	const section = document.getElementById('recipesList');
 	
 	const article = document.createElement("article");
 	article.classList.add("bg-white", "rounded-lg", "overflow-hidden", "relative");
@@ -81,20 +81,13 @@ const getRecipeCard = (recipe) => {
 	return section;
 };
 
-const getRecipesCards = () => {
-	const cards = [];
-	
-	for (let recipe of recipes) {
-		const card = getRecipeCard(recipe);
-		cards.push(card);
-	}
-	
-	return cards;
+export const getRecipesCards = (recipesList) => {
+	for (let recipe of recipesList) getRecipeCard(recipe);
 }
 
 const run = () => {
 	getRecipesCount();
-	getRecipesCards();
+	getRecipesCards(recipes);
 };
 
 run();

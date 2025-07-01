@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 
 const getIngredients = () => {
-	const ingredientsSelect = document.querySelector("#ingredients");
+	const ingredientsSelect = document.getElementById("ingredients");
 	const ingredientsList = [];
 	
 	for (let recipe of recipes) {
@@ -23,7 +23,7 @@ const getIngredients = () => {
 }
 
 const getApparels = () => {
-	const apparelsSelect = document.querySelector("#appareils");
+	const apparelsSelect = document.getElementById("appareils");
 	const apparelsList = [];
 	
 	for (let recipe of recipes) {
@@ -43,7 +43,7 @@ const getApparels = () => {
 }
 
 const getUstensils = () => {
-	const ustensilsSelect = document.querySelector("#ustensils");
+	const ustensilsSelect = document.getElementById("ustensils");
 	const ustensilsList = [];
 	
 	for (let recipe of recipes) {
