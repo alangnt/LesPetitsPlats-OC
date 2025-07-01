@@ -11,7 +11,11 @@ const getRecipeCard = (recipe) => {
 	const section = document.querySelector('#recipesList');
 	
 	const article = document.createElement("article");
-	article.classList.add("bg-white", "rounded-lg", "overflow-hidden");
+	article.classList.add("bg-white", "rounded-lg", "overflow-hidden", "relative");
+	
+	const articleDurationPill = document.createElement("div");
+	articleDurationPill.innerText = recipe.time + "min";
+	articleDurationPill.classList.add("absolute", "top-4", "right-4", "bg-yellow-300", "rounded-full", "py-1", "px-2", "text-sm");
 	
 	const articleImageBody = document.createElement("div");
 	articleImageBody.classList.add("w-full", "aspect-video", "overflow-hidden");
@@ -46,6 +50,7 @@ const getRecipeCard = (recipe) => {
 	ingredientsBody.classList.add("grid", "grid-cols-2", "gap-4", "mb-4");
 	
 	for (let ingredient of recipe.ingredients) {
+		if (!ingredient.quantity) return;
 		const ingredientBody = document.createElement("div");
 		
 		const ingredientTitle = document.createElement("h5");
@@ -67,6 +72,7 @@ const getRecipeCard = (recipe) => {
 	articleBody.appendChild(bodyIngredientsTitle);
 	articleBody.appendChild(ingredientsBody);
 	
+	article.appendChild(articleDurationPill);
 	article.appendChild(articleImageBody);
 	article.appendChild(articleBody);
 	
