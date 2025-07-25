@@ -50,20 +50,22 @@ const getRecipeCard = (recipe) => {
 	ingredientsBody.classList.add("grid", "grid-cols-2", "gap-4", "mb-4");
 	
 	for (let ingredient of recipe.ingredients) {
-		if (!ingredient.quantity) return;
-		const ingredientBody = document.createElement("div");
-		
-		const ingredientTitle = document.createElement("h5");
-		ingredientTitle.innerText = ingredient.ingredient;
-		
-		const ingredientDescription = document.createElement("p");
-		ingredientDescription.innerText = ingredient.quantity + (ingredient.unit ? ingredient.unit : "");
-		ingredientDescription.classList.add("text-gray-500");
-		
-		ingredientBody.appendChild(ingredientTitle);
-		ingredientBody.appendChild(ingredientDescription);
-		
-		ingredientsBody.appendChild(ingredientBody);
+		if (!ingredient.quantity) continue;
+		else {
+			const ingredientBody = document.createElement("div");
+			
+			const ingredientTitle = document.createElement("h5");
+			ingredientTitle.innerText = ingredient.ingredient;
+			
+			const ingredientDescription = document.createElement("p");
+			ingredientDescription.innerText = ingredient.quantity + (ingredient.unit ? ingredient.unit : "");
+			ingredientDescription.classList.add("text-gray-500");
+			
+			ingredientBody.appendChild(ingredientTitle);
+			ingredientBody.appendChild(ingredientDescription);
+			
+			ingredientsBody.appendChild(ingredientBody);
+		}
 	}
 	
 	articleBody.appendChild(bodyTitle);

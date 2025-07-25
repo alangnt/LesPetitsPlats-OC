@@ -8,16 +8,17 @@ const getIngredients = () => {
 		for (let ingredient of recipe.ingredients) {
 			if (!ingredient.ingredient) continue;
 			else if (ingredientsList.includes(ingredient.ingredient)) continue;
-			else {
-				const option = document.createElement("option");
-				option.value = ingredient.ingredient;
-				option.innerText = ingredient.ingredient;
-				
-				ingredientsList.push(ingredient.ingredient);
-				ingredientsSelect.appendChild(option);
-			}
+			else ingredientsList.push(ingredient.ingredient);
 		}
 	}
+	
+	ingredientsList.sort().forEach((ingredient) => {
+		const option = document.createElement("option");
+		option.value = ingredient;
+		option.innerText = ingredient;
+		
+		ingredientsSelect.appendChild(option);
+	});
 	
 	return ingredientsSelect;
 }
@@ -29,15 +30,16 @@ const getApparels = () => {
 	for (let recipe of recipes) {
 		if (!recipe.appliance) continue;
 		else if (apparelsList.includes(recipe.appliance)) continue;
-		else {
-			const option = document.createElement("option");
-			option.value = recipe.appliance;
-			option.innerText = recipe.appliance;
-			
-			apparelsList.push(recipe.appliance);
-			apparelsSelect.appendChild(option);
-		}
+		else apparelsList.push(recipe.appliance);
 	}
+	
+	apparelsList.sort().forEach((appliance) => {
+		const option = document.createElement("option");
+		option.value = appliance;
+		option.innerText = appliance;
+		
+		apparelsSelect.appendChild(option);
+	});
 	
 	return apparelsSelect;
 }
@@ -51,17 +53,18 @@ const getUstensils = () => {
 		else {
 			for (let ustensil of recipe.ustensils) {
 				if (ustensilsList.includes(ustensil)) continue;
-				else {
-					const option = document.createElement("option");
-					option.value = ustensil;
-					option.innerText = ustensil;
-					
-					ustensilsList.push(ustensil);
-					ustensilsSelect.appendChild(option);
-				}
+				else ustensilsList.push(ustensil);
 			}
 		}
 	}
+	
+	ustensilsList.sort().forEach((ustensil) => {
+		const option = document.createElement("option");
+		option.value = ustensil;
+		option.innerText = ustensil;
+		
+		ustensilsSelect.appendChild(option);
+	})
 	
 	return ustensilsSelect;
 }

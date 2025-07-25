@@ -26,8 +26,8 @@
     </div>
   </header>
 
-  <main class="flex flex-col bg-gray-100">
-    <nav class="flex justify-between items-center w-full p-4">
+  <main class="flex flex-col gap-4 bg-gray-100 p-4">
+    <div class="flex justify-between items-center w-full">
       <div class="flex gap-12">
         <select name="ingredients" id="ingredients" class="bg-white rounded-lg p-4">
           <option value="" disabled selected>Ingrédients</option>
@@ -42,9 +42,10 @@
         </select>
       </div>
       
-      <!-- TODO: Total Recettes -->
       <h2 id="recipesCount" class="text-xl"></h2>
-    </nav>
+    </div>
+    
+    <div id="filtersList" class="flex gap-6"></div>
     
     <section id="recipesList" class="grid grid-cols-3 gap-6 p-4"></section>
   </main>
